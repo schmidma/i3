@@ -248,6 +248,7 @@ bar {
     workspace_buttons no
     mode hide
     modifier Mod3
+    tray_output none
 }
 
 #exec --no-startup-id setxkbmap -layout de -variant mac
