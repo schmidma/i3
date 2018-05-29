@@ -35,45 +35,47 @@ else:
             return "#FFFF66"
         return "#FFFFFF"
 
-    state = status.split(": ")[1].split(", ")[0]
-    commasplitstatus = status.split(", ")
-    percentleft = int(commasplitstatus[1].rstrip("%\n"))
-
-    # stands for charging
-    FA_LIGHTNING = "<span color='yellow'><span font='FontAwesome'></span></span>"
-
-    # stands for plugged in
-    FA_PLUG = "<span font='FontAwesome'></span>"
-
     fulltext = ""
-    timeleft = ""
-    time = commasplitstatus[-1].split()[0]
-    time = ":".join(time.split(":")[0:2])
-    timeleft = " ({})".format(time)
+    for bat in status.split("\n")[:-1]:
+        state = bat.split(": ")[1].split(", ")[0]
+        commasplitstatus = bat.split(", ")
+        percentleft = int(commasplitstatus[1].rstrip("%"))
 
-    if state == "Discharging":
-        if percentleft < 10:
-            fulltext = "<span font='FontAwesome'></span> "
-        elif percentleft < 30:
-            fulltext = "<span font='FontAwesome'></span> "
-        elif percentleft < 60:
-            fulltext = "<span font='FontAwesome'></span> "
-        elif percentleft < 90:
-            fulltext = "<span font='FontAwesome'></span> "
+        # stands for charging
+        FA_LIGHTNING = "<span color='yellow'><span font='FontAwesome'></span></span>"
+
+        # stands for plugged in
+        FA_PLUG = "<span font='FontAwesome'></span>"
+
+        timeleft = ""
+        time = commasplitstatus[-1].split()[0]
+        time = ":".join(time.split(":")[0:2])
+        timeleft = " ({})".format(time)
+
+        if state == "Discharging":
+            if percentleft < 10:
+                fulltext += "<span font='FontAwesome'></span> "
+            elif percentleft < 30:
+                fulltext += "<span font='FontAwesome'></span> "
+            elif percentleft < 60:
+                fulltext += "<span font='FontAwesome'></span> "
+            elif percentleft < 90:
+                fulltext += "<span font='FontAwesome'></span> "
+            else:
+                fulltext += "<span font='FontAwesome'></span> "
+
+        elif state == "Full":
+            fulltext += FA_PLUG + " "
+        elif state == "Unknown":
+            fulltext += "<span font='FontAwesome'></span> "
         else:
-            fulltext = "<span font='FontAwesome'></span> "
+            #fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
+            fulltext += FA_PLUG + " "
 
-    elif state == "Full":
-        fulltext = FA_PLUG + " "
-    elif state == "Unknown":
-        fulltext = "<span font='FontAwesome'></span> "
-    else:
-        #fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
-        fulltext = FA_PLUG + " "
-
-    form = '<span color="{}">{}%</span>'
-    fulltext += form.format(color(percentleft), percentleft)
-    fulltext += timeleft
+        form = '<span color="{}">{}%</span>'
+        fulltext += form.format(color(percentleft), percentleft)
+        fulltext += timeleft
+        fulltext += " "
 
 print(fulltext)
 #print(fulltext)
