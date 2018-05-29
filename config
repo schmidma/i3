@@ -212,7 +212,7 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
-bindsym $mod+Control+l exec --no-startup-id /home/schmidma/.config/i3/scripts/lock
+bindsym Control+Mod1+l exec --no-startup-id /home/schmidma/.config/i3/scripts/lock
 
 bindsym XF86MonBrightnessDown exec xbacklight -dec 10
 bindsym XF86MonBrightnessUp exec xbacklight -inc 10
