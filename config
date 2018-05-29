@@ -223,6 +223,7 @@ bindsym XF86KbdBrightnessDown exec sudo leds -3
 bindsym XF86AudioMute exec amixer -q sset Master toggle
 bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
+bindsym XF86AudioMicMute exec amixer -q sset Capture toggle
 
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
