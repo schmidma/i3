@@ -233,6 +233,27 @@ bindsym Control+Mod1+Down exec playerctl play-pause
 bindsym Control+Mod1+Right exec playerctl next
 bindsym Control+Mod1+Left exec playerctl previous
 
+# mode to select position of external monitor
+mode "external_monitor" {
+        # set names of internal and external devices
+        set $external_monitor HDMI2
+        set $internal_monitor eDP1
+
+        bindsym Left exec xrandr --output $internal_monitor --primary --auto --output $external_monitor --left-of $internal_monitor --auto, mode "default"
+        bindsym Right exec xrandr --output $internal_monitor --primary --auto --output $external_monitor --right-of $internal_monitor --auto, mode "default"
+        bindsym Up exec xrandr --output $internal_monitor --primary --auto --output $external_monitor --above $internal_monitor --auto, mode "default"
+        bindsym Down exec xrandr --output $internal_monitor --primary --auto --output $external_monitor --below $internal_monitor --auto, mode "default"
+        bindsym H exec /home/schmidma/.screenlayout/HULKs.sh, mode "default"
+        bindsym I exec xrandr --output $internal_monitor --primary --auto --output $external_monitor --off, mode "default"
+        bindsym E exec xrandr --output $internal_monitor --primary --off --output $external_monitor --auto, mode "default"
+        # back to normal: Enter or Escape
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+}
+
+#Screen button
+bindsym XF86Display mode "external_monitor"
+
 bindsym $mod+p exec --no-startup-id FILE="/home/schmidma/Pictures/snapshot-$(date +%Y-%m-%dT%H-%M-%S).png" && maim -s $FILE && xclip -selection clipboard $FILE -t image/png
 
 smart_gaps on
