@@ -1,8 +1,5 @@
 #!/usr/bin/env python3
 #
-# Copyright (C) 2016 James Murphy
-# Licensed under the GPL version 2 only
-#
 # A battery indicator blocklet script for i3blocks
 
 from subprocess import check_output
@@ -12,12 +9,10 @@ status = check_output(['acpi'], universal_newlines=True)
 if not status:
     # stands for no battery found
     fulltext = "<span color='red'><span font='FontAwesome'>\uf00d \uf240</span></span>"
-    percentleft = 100
+    totalPercentLeft = 100
 else:
-
     def color(percent):
         if percent < 10:
-            # exit code 33 will turn background red
             return "#FFFFFF"
         if percent < 20:
             return "#FF3300"
@@ -36,10 +31,12 @@ else:
         return "#FFFFFF"
 
     fulltext = ""
+    totalPercentLeft = 0
     for bat in status.split("\n")[:-1]:
         state = bat.split(": ")[1].split(", ")[0]
         commasplitstatus = bat.split(", ")
         percentleft = int(commasplitstatus[1].rstrip("%"))
+        totalPercentLeft += percentleft
 
         # stands for charging
         FA_LIGHTNING = "<span color='yellow'><span font='FontAwesome'></span></span>"
@@ -63,13 +60,11 @@ else:
                 fulltext += "<span font='FontAwesome'></span> "
             else:
                 fulltext += "<span font='FontAwesome'></span> "
-
         elif state == "Full":
             fulltext += FA_PLUG + " "
         elif state == "Unknown":
             fulltext += "<span font='FontAwesome'></span> "
         else:
-            #fulltext = FA_LIGHTNING + " " + FA_PLUG + " "
             fulltext += FA_PLUG + " "
 
         form = '<span color="{}">{}%</span>'
@@ -78,6 +73,6 @@ else:
         fulltext += " "
 
 print(fulltext)
-#print(fulltext)
-if percentleft < 10:
+if totalPercentLeft < 10:
+    # exit code 33 will turn background red
     exit(33)
