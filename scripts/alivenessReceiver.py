@@ -1,1 +1,0 @@
-/home/schmidma/worktree/nao/scripts/alivenessReceiver.py
