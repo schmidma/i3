@@ -276,7 +276,7 @@ bar {
     tray_output none
 }
 
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/jamie.jpg
+exec --no-startup-id feh --bg-fill /usr/share/backgrounds/capSanNicolas.jpg
 exec --no-startup-id nm-applet --sm-disable
 exec --no-startup-id libinput-gestures-setup start
 exec --no-startup-id xss-lock -- /home/schmidma/.config/i3/scripts/lock
