@@ -234,6 +234,13 @@ bindsym Control+Mod1+Down exec playerctl play-pause
 bindsym Control+Mod1+Right exec playerctl next
 bindsym Control+Mod1+Left exec playerctl previous
 
+# Scratchpad alsamixer
+for_window [title="alsamixer"] floating enable
+for_window [title="alsamixer"] resize set 1000 600
+for_window [title="alsamixer"] move scratchpad
+exec --no-startup-id $term -t alsamixer -e alsamixer
+bindsym $mod+m [title="alsamixer"] scratchpad show; [title="alsamixer"] move position center
+
 # mode to select position of external monitor
 mode "external_monitor" {
         # set names of internal and external devices
