@@ -226,6 +226,9 @@ bindsym XF86AudioRaiseVolume exec amixer -q sset Master 5%+ unmute
 bindsym XF86AudioLowerVolume exec amixer -q sset Master 5%- unmute
 bindsym XF86AudioMicMute exec amixer -q sset Capture toggle
 
+# Touchpad Toggle
+bindsym XF86Launch2 exec /home/schmidma/.config/i3/scripts/toggle_touchpad
+
 # Media player controls
 bindsym XF86AudioPlay exec playerctl play-pause
 bindsym XF86AudioNext exec playerctl next
