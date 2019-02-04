@@ -215,8 +215,8 @@ bindsym $mod+r mode "resize"
 
 bindsym Control+Mod1+l exec --no-startup-id /home/schmidma/.config/i3/scripts/lock
 
-bindsym XF86MonBrightnessDown exec xbacklight -dec 10
-bindsym XF86MonBrightnessUp exec xbacklight -inc 10
+bindsym XF86MonBrightnessDown exec xbacklight -dec 2
+bindsym XF86MonBrightnessUp exec xbacklight -inc 2
 
 bindsym XF86KbdBrightnessUp exec sudo leds +3
 bindsym XF86KbdBrightnessDown exec sudo leds -3
