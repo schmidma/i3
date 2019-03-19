@@ -1,5 +1,5 @@
 #!/bin/bash
-if xinput list-props 20 | grep "Device Enabled (150):.*1" > /dev/null
+if xinput list-props 20 | grep "Device Enabled (151):.*1" > /dev/null
 then
   xinput disable 20
 else
