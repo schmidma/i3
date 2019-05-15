@@ -13,22 +13,22 @@ if not status:
 else:
     def color(percent):
         if percent < 10:
-            return "#FFFFFF"
+            return "#f8f8f8"
         if percent < 20:
             return "#FF3300"
         if percent < 30:
-            return "#FF6600"
+            return "#ab4642"
         if percent < 40:
-            return "#FF9900"
+            return "#dc9656"
         if percent < 50:
-            return "#FFCC00"
+            return "#dc9656"
         if percent < 60:
-            return "#FFFF00"
+            return "#a1b56c"
         if percent < 70:
-            return "#FFFF33"
+            return "#a1b56c"
         if percent < 80:
-            return "#FFFF66"
-        return "#FFFFFF"
+            return "#a1b56c"
+        return "#f8f8f8"
 
     fulltext = ""
     totalPercentLeft = 0
