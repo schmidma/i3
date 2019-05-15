@@ -136,6 +136,7 @@ workspace 10 output eDP1
 
 assign [class="chromium"] 1
 assign [class="Telegram"] 8
+assign [class="Riot"] 8
 for_window [class="Spotify"] move to workspace 10
 
 # switch to workspace
