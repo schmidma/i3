@@ -336,7 +336,7 @@ bar {
     }
 }
 
-exec --no-startup-id feh --bg-fill /usr/share/backgrounds/capSanNicolas.jpg
+exec --no-startup-id feh --bg-fill .local/share/backgrounds/capSanNicolas.jpg
 exec --no-startup-id nm-applet --sm-disable
 # exec --no-startup-id libinput-gestures-setup start
 # Screen lock done by /etc/systemd/system/suspend@.service
