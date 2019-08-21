@@ -342,6 +342,5 @@ exec --no-startup-id nm-applet --sm-disable
 # Screen lock done by /etc/systemd/system/suspend@.service
 # exec --no-startup-id xss-lock -- /home/schmidma/.config/i3/scripts/lock
 # exec --no-startup-id xautolock -time 10 -locker /home/schmidma/.config/i3/scripts/lock
-exec --no-startup-id /home/schmidma/.venv/nao/bin/python /home/schmidma/.config/i3/scripts/alivenessReceiver.py
 
 for_window [class="^.*"] border pixel 0
