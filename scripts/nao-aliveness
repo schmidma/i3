@@ -1,0 +1,2 @@
+#!/bin/bash
+~/.venv/nao/bin/python ~/.config/i3/scripts/aliveness
