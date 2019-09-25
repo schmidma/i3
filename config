@@ -300,7 +300,7 @@ mode "external_monitor" {
 #Screen button
 bindsym XF86Display mode "external_monitor"
 
-bindsym $mod+p exec --no-startup-id FILE="/home/schmidma/Pictures/snapshot-$(date +%Y-%m-%dT%H-%M-%S).png" && maim -s --hidecursor $FILE && xclip -selection clipboard $FILE -t image/png
+bindsym $mod+p exec --no-startup-id FILE="/home/schmidma/Pictures/snapshot/snapshot-$(date +%Y-%m-%dT%H-%M-%S).png" && maim -s --hidecursor $FILE && xclip -selection clipboard $FILE -t image/png
 
 smart_gaps on
 gaps inner 3
